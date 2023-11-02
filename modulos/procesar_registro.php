@@ -15,6 +15,7 @@ if (isset($_POST["nombre"]) && isset($_POST["clave"])) {
             echo "<script>alert('Se registro');</script>";
         }
     }
+        echo "<script>window.location='index.php?modulo=procesar_registro';</script>";
 }
 ?>
 
