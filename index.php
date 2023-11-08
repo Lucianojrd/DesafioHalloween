@@ -28,13 +28,18 @@ conectar();
     <header>
         <h1>Concurso de disfraces de Halloween</h1>
         <?php
-        if (isset($_SESSION['nombre_usuario'])){
+        if (isset($_SESSION['nombre_usuario'])) {
             ?>
-            <div class="sesion"><p><?php echo$_SESSION['nombre_usuario']?> , Usted tiene el ID: <?php echo $_SESSION['id'];?></p> </div>
+            <div class="sesion">
+                <p>
+                    <?php echo $_SESSION['nombre_usuario'] ?> , Usted tiene el ID:
+                    <?php echo $_SESSION['id']; ?>
+                </p>
+            </div>
             <a href="index.php?modulo=procesar_login&salir=ok">Salir </a>
-            <?php 
-        
-        } ?> 
+            <?php
+
+        } ?>
     </header>
     <main>
         <?php
@@ -60,22 +65,20 @@ conectar();
                                 <?php echo $r['votos']; ?>
                             </p>
                             <p><img src="imagenes/<?php echo $r['foto']; ?>" width="100%"></p>
-                                <?php
-                                if (!empty($_SESSION['nombre_usuario'])) {
-                                $sql_votos= "SELECT *FROM votos where id_disfraz=".$r['id']." and id_usuario=".$_SESSION['id'];
-                                $sql_votos= mysqli_query($con, $sql_votos);
-                                if (mysqli_num_rows($sql_votos)== 0){
+                            <?php
+                            if (!empty($_SESSION['nombre_usuario'])) {
+                                $sql_votos = "SELECT *FROM votos where id_disfraz=" . $r['id'] . " and id_usuario=" . $_SESSION['id'];
+                                $sql_votos = mysqli_query($con, $sql_votos);
+                                if (mysqli_num_rows($sql_votos) == 0) {
                                     ?>
                                     <button class="votar">Votar </button>
                                     <?php
                                 }
                             }
-                                ?>
+                            ?>
                         </div>
                         <hr>
                         <?php
-
-
                     }
                     ?>
                 </section>
@@ -95,9 +98,6 @@ conectar();
             }
         }
         ?>
-
-
-
     </main>
     <script src="js/script.js"></script>
 </body>

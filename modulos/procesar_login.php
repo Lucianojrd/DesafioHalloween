@@ -22,9 +22,6 @@ echo "<script>window.location='index.php';</script>";
 
 ?>
 
-
-
-
 <section id="login" class="section">
             <h2>Iniciar Sesión</h2>
             <form action="index.php?modulo=procesar_login" method="POST">
